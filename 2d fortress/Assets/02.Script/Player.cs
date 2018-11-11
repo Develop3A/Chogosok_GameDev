@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Tank's Status")]
+    public float Explosion_Radius = 0.0f;//포탄의 폭발범위
+    //여기에 이동속도나 그런것들도 추가시켜주면 감사하겠슴. 
+
+        [Space(20)]
+    [Header("Requirements")]
     public GameObject posin;
     public GameObject bullet;
     public Transform firePos;
@@ -19,6 +25,7 @@ public class Player : MonoBehaviour
     {
         anim = transform.GetComponent<Animator>();
         StartCoroutine(Move(1,0));
+        if (Explosion_Radius == 0.0f) Explosion_Radius = 0.5f; //조작안할시에는 자동으로 0.5가됨
     }
 
     private void Update()
@@ -77,8 +84,7 @@ public class Player : MonoBehaviour
                 }
                 if (shot)
                 {
-                    GameObject Bullet = Instantiate(bullet, firePos.position, Quaternion.Euler(Angle));
-                    Debug.Log(Angle);
+                    Bullet_Gen(firePos.position, Quaternion.Euler(Angle));
                 }
                 index = 2;
                 posin.SetActive(false);
@@ -103,5 +109,10 @@ public class Player : MonoBehaviour
 
     }
     
+    public void Bullet_Gen(Vector3 pos, Quaternion Angle)
+    {
+        GameObject Bullet = Instantiate(bullet, pos, Angle);
+        Bullet.GetComponent<BulletScript>().ex_radius = Explosion_Radius;
+    }
 }
 

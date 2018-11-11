@@ -42,6 +42,10 @@ public class CameraControl : MonoBehaviour {
             case "Targeting":
                 StartCoroutine("Targeting");
                 break;
+
+            default:
+                Debug.LogError("CameraControl : '" + State_string + "' 라는 값은 존재하지 않습니다.");
+                break;
         }
     }
     public void Set_Target(Transform obj)
@@ -84,7 +88,11 @@ public class CameraControl : MonoBehaviour {
 
         while(State == CamState.Targeting)
         {
-            if (TargetObj == null) Set_State("Normal");
+            if (TargetObj == null)
+            {
+                yield return new WaitForSeconds(1.0f);
+                Set_State("Normal");
+            }
 
             transform.position = new Vector3(TargetObj.transform.position.x, TargetObj.transform.position.y,-10.0f);
 

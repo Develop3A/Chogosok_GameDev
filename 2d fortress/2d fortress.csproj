@@ -306,6 +306,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\02.Script\3A\CameraControl.cs" />
     <Compile Include="Assets\02.Script\BulletScript.cs" />
     <Compile Include="Assets\02.Script\Player.cs" />
   </ItemGroup>
