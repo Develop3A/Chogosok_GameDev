@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [Header("Tank's Status")]
+    public float Bullet_Force = 300.0f;
     public float Explosion_Radius = 0.0f;//포탄의 폭발범위
     //여기에 이동속도나 그런것들도 추가시켜주면 감사하겠슴. 
 
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
     {
         GameObject Bullet = Instantiate(bullet, pos, Angle);
         Bullet.GetComponent<BulletScript>().ex_radius = Explosion_Radius;
+        Bullet.GetComponent<BulletScript>().force = Bullet_Force;
     }
 }
 
