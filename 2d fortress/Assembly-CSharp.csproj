@@ -62,8 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02.Script\3A\CameraControl.cs" />
-    <Compile Include="Assets\02.Script\BulletScript.cs" />
-    <Compile Include="Assets\02.Script\Player.cs" />
+    <Compile Include="Assets\02.Script\TenSei\BulletScript.cs" />
+    <Compile Include="Assets\02.Script\TenSei\GameManager.cs" />
+    <Compile Include="Assets\02.Script\TenSei\Player.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/GitHub/Chogosok_GameDev/2d fortress/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
